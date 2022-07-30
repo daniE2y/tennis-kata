@@ -14,29 +14,13 @@ public class TennisGameKataTest {
         player1.setScore("love");
 
         Player player2 = new Player();
-        player1.setName("Pita");
-        player1.setScore("love");
+        player2.setName("Pita");
+        player2.setScore("love");
 
         TennisGame game = new TennisGame(player1, player2);
-        String result = game.getGameResults();
+        String result = game.getGameResults(player1, player2);
 
         assertThat(result).isEqualTo("The game has not winners! Let's play");
-    }
-
-    @Test
-    public void shouldGetGameResultsReturnInvalidGame_whenTheScoreIsIncorrect() {
-        Player player1 = new Player();
-        player1.setName("Daniel");
-        player1.setScore("15");
-
-        Player player2 = new Player();
-        player1.setName("Pita");
-        player1.setScore("35");
-
-        TennisGame game = new TennisGame(player1, player2);
-        String result = game.getGameResults();
-
-        assertThat(result).isEqualTo("Oh! This is an invalid game");
     }
 
 	@Test
@@ -46,13 +30,13 @@ public class TennisGameKataTest {
         player1.setScore("40");
 
         Player player2 = new Player();
-        player1.setName("Pita");
-        player1.setScore("15");
+        player2.setName("Pita");
+        player2.setScore("15");
 
         TennisGame game = new TennisGame(player1, player2);
-        String result = game.getGameResults();
+        String result = game.getGameResults(player1, player2);
 
-        assertThat(result).isEqualTo("Player1 is the winner!");
+        assertThat(result).isEqualTo("Daniel is the winner!");
     }
 
     @Test
@@ -62,11 +46,11 @@ public class TennisGameKataTest {
         player1.setScore("40");
 
         Player player2 = new Player();
-        player1.setName("Pita");
-        player1.setScore("40");
+        player2.setName("Pita");
+        player2.setScore("40");
 
         TennisGame game = new TennisGame(player1, player2);
-        String result = game.getGameResults();
+        String result = game.getGameResults(player1, player2);
 
         assertThat(result).isEqualTo("deuce");
         assertThat(player1.getScore()).isEqualTo("40");
@@ -81,11 +65,11 @@ public class TennisGameKataTest {
         player1.setScore("advantage");
 
         Player player2 = new Player();
-        player1.setName("Pita");
-        player1.setScore("40");
+        player2.setName("Pita");
+        player2.setScore("40");
 
         TennisGame game = new TennisGame(player1, player2);
-        String result = game.getGameResults();
+        String result = game.getGameResults(player1, player2);
 
         assertThat(result).isEqualTo("advantage");
         assertThat(player1.getScore()).isEqualTo("advantage");
