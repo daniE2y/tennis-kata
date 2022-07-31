@@ -6,6 +6,7 @@ public class Player {
     private String score;
 
     public Player() {
+        // Empty constructor.
     }
 
     public String getName() {
